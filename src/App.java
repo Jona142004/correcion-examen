@@ -1,4 +1,7 @@
 
+import java.util.Arrays;
+
+import Controllers.PersonaController;
 import Models.Persona;
 
 public class App {
@@ -61,5 +64,42 @@ public class App {
                 // Si encontró a la persona en el arreglo de personas los datos de dicha persona
                 // y su posición
                 // Si no encontró a la persona en el arreglo de personas
+                PersonaController metodos = new PersonaController();
+                metodos.selección(personas);
+                for (int i = 0; i < personas.length; i++) {
+                       System.out.println(personas[i]); 
+                }
+                
+
+                //System.out.println(Arrays.toString(personas));
+                int posicion = metodos.busquedaBiPersona(personas, 25);
+                if (posicion != -1) {
+                        System.out.println("La persona con edad 25 es: " + posicion);
+                } else {
+                        System.out.println("No se encontro la persona con edad 25");
+                }
+                posicion = metodos.busquedaBiPersona(personas, 70);
+                if (posicion != -1) {
+                        System.out.println("La persona con edad 70 es: " + posicion);
+                } else {
+                        System.out.println("No se encontro la persona con edad 70");
+                }
+
+
+                metodos.insercion(personas);
+                System.out.println(Arrays.toString(personas));
+                int nombre = metodos.busquedaBiPersonaN(personas, "Anais");
+                if (nombre != -1) {
+                        System.out.println("La persona con nombre Anais se encuentra en : " + nombre);
+                } else {
+                        System.out.println("No se encontro la persona con ese nombre");
+                }
+
+                int nombre1 = metodos.busquedaBiPersonaN(personas, "Miguel");
+                if (nombre1 != -1) {
+                        System.out.println("La persona con nombre Miguel se encuentra en : " + nombre1);
+                } else {
+                        System.out.println("No se encontro la persona con ese nombre");
+                }
         }
 }
